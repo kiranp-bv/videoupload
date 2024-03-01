@@ -1,0 +1,123 @@
+<style>
+    video {
+        width: 30%;
+        height: 200px;
+    }
+</style>
+
+
+
+
+<button id="check">Check Video formats which can be played on this browser</button>
+
+
+<h2>3gpp2</h2>
+<video id="3gpp2" autoplay playsinline controls loop>
+    <source src="https://sample-videos.com/video321/3gp/240/big_buck_bunny_240p_5mb.3gp" type="video/3gpp2">
+</video>
+
+<h2>ASF</h2>
+<video id="mp4" autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/asf%20video%20original.asf" type="video/mp4">
+</video>
+
+<h2>AVI</h2>
+<video autoplay playsinline controls loop>
+    <source src="https://file-examples.com/wp-content/storage/2018/04/file_example_AVI_640_800kB.avi"
+        type="video/mp4">
+</video>
+
+<h2>FLV</h2>
+<video autoplay playsinline controls loop>
+    <source src="https://sample-videos.com/video321/flv/720/big_buck_bunny_720p_1mb.flv" type="video/mp4">
+</video>
+
+<!-- <h2>MOV Chrome</h2>
+<video autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/mov%20video.mov" type="video/mp4">
+</video> -->
+
+<h2>MOV</h2>
+<video autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/mov%20video.mov" type="video/quicktime">
+</video>
+
+<h2>MP4</h2>
+<video autoplay playsinline controls loop>
+    <source src="https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4" type="video/mp4">
+</video>
+
+<h2>MPEG</h2>
+<video autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/mpg%20video%20original.mpg" type="video/mpeg">
+</video>
+
+
+<!-- <h2>Quick time Chrome</h2>
+<video id="qtchrome" autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/QT%20quick%20time%20video.mov" type="video/mp4">
+</video> -->
+
+
+<h2>Quick time</h2>
+<video autoplay playsinline controls loop>
+    <source src="http://127.0.0.1:5500/video/files/QT%20quick%20time%20video.mov" type="video/quicktime">
+</video>
+
+
+
+
+<h2>WMV</h2>
+<video autoplay playsinline controls loop>
+    <source src="https://file-examples.com/wp-content/storage/2018/04/file_example_WMV_640_1_6MB.wmv" type="video/mp4">
+</video>
+
+
+<script type="text/javascript">
+    function check() {
+        const formats = [{
+            file: "3G2",
+            type: "video/3gpp2"
+        },
+        {
+            file: "ASF",
+            type: null
+        },
+        {
+            file: "AVI",
+            type: null
+        },
+        {
+            file: "FLV",
+            type: null
+        },
+        {
+            file: "MOV",
+            type: "video/quicktime"
+        },
+        {
+            file: "MP4",
+            type: "video/mp4"
+        },
+        {
+            file: "MPEG",
+            type: "video/mpeg"
+        },
+        {
+            file: "QT",
+            type: "video/quicktime"
+        },
+        {
+            file: "WMV",
+            type: null
+        }]
+        let result = 'This browser supprots preview for: \n'
+        let obj = document.createElement("video");
+        formats.forEach(({file,type}) => {
+            result += `${file}${' '.repeat(10-file.length)}:   ${obj.canPlayType(type) || 'No'}\n`
+        })
+        alert(result);
+    }
+    document.querySelector("#check").addEventListener('click', check)
+    document.querySelector("#qtchrome").addEventListener('click', check)
+</script>
